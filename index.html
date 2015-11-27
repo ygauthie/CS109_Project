@@ -67,6 +67,9 @@
                     <li>
                         <a class="page-scroll" href="#results">Results</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="#conclusion">Conclusions</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -80,7 +83,7 @@
             <div class="intro-text">
                 <div class="intro-heading">Are we rich yet?</div>
                 <div class="intro-lead-in">How we tried to beat the stock market using machine learning (and almost succeeded)</div>
-                <a href="#background" class="page-scroll btn btn-xl">Read our story</a>
+                <a href="#team" class="page-scroll btn btn-xl">Read our story</a>
             </div>
         </div>
     </header>
@@ -156,7 +159,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Our approach</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">A different take on market predictions</h3>
                 </div>
             </div>
             <div class="row">
@@ -164,11 +167,11 @@
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="" >
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="subheading">1. Sector selection</h4>
+                                    <h4 class="subheading">1. Market sector selection</h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Instead of trying to predict individual stocks, we focus on sectors of the U.S. market, for instance the real estate market.</p>
@@ -181,11 +184,10 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
+                                    <h4 class="subheading">2. Feature engineering</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Using historical data, we compute various technical indicators related to our sector of interest, as well as indicators related to the broader stock market. We use these technical indicators (some quantitatives, some binary) to feed our machine learning models.</p>
                                 </div>
                             </div>
                         </li>
@@ -195,11 +197,10 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
+                                    <h4 class="subheading">3. Classifier selection</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Then, we train, validate, and test various machine learning classifiers on our data.  We select the classifier that best predicts if the market sector of interest will be up (+) or down (-) in 14 days.</p>
                                 </div>
                             </div>
                         </li>
@@ -219,9 +220,9 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
+                                <h4>So? Are
+                                    <br>we rich
+                                    <br>yet?</h4>
                             </div>
                         </li>
                     </ul>
@@ -329,7 +330,30 @@
     </section>
 
 
-    
+    <!-- Conclusion Section -->
+    <section id="conclusion" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Conclusions</h2>
+                    <h3 class="section-subheading text-muted">What is this all about?</h3>
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="row text-center">
+                    <br>
+                    <p class="text-muted">This is the result of a project that the four of us conducted as part of a <a href="http:\\cs109.org">data science course</a> we took at Harvard during the Fall of 2015.  Data science and machine learning play an increasing role in applied finance. The markets produce huge and ever increasing volumes of data. This calls for novel methods to discover and explore patterns in the data, and possibly exploit them.
+                    </p>
+
+                    <p class="text-muted">Beating the market, however, is challenging.  Countless methods have been proposed to do so, but in general, they are not more profitable than the "buy-and-hold" strategy, especially when transaction costs are considered.
+                    </p>
+                
+            </div>
+        </div>
+    </section>
 
     <!-- Clients Aside -->
     <aside class="clients">
