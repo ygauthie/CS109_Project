@@ -602,102 +602,27 @@ def calculate_commission(price, quantity):
 
 '''
 input:
-signal_column: name of the column that indicates the signal,  1 for long signal or -1 for short signal
-price_column: name of the column responding to order execution price, could be open or close
-include_commision: deduct commission for each transaction if True, default to True
-
+signal_column: name of the column that indicates the signal,  1 for long signal or 0 for short signal
+price_column: name of the column responding to order execution price, default to close
+commision: deduct commission for each transaction if True, default to False
+strategy: list of 0 or/and 1, 0 for short,  and 1 for long.  
+          can be any of these four value [], [0], [1], [1,0], 
 output: 
-balance, profit, ROI, balance_over_time
-
-NOTE: this is LONG only evaluation, SHORT is not implemented yet. SHORT position will involve margin, so we need to decide 
-later.
-
+balance, profit, ROI, balance_over_time, signals_over_time
 '''
-def evaluate_profit(df, start_date, end_date, intitial_balance, signal_column, price_column, include_commission=True):
-    df = df.sort('date')
-    df = df[df.date >= start_date][df.date <= end_date]
+def evaluate_profit(df, start_date, end_date, intitial_balance, signal_column, price_column='close', commission=False, strategy=[0,1]):
+    long_ = 1 in strategy
+    short_ = 0 in strategy
+    
+    df = df[(df.date>=start_date) & (df.date<=end_date)].sort('date').reset_index(drop=True)
     
     balance_over_time = []
+    signals ={0:[], 1:[]}
+    
     balance = intitial_balance
-    current_position = 0  # 1 for long position, -1 for short, 0 for closed position or no position
-    pos_quantity = 0  # current position quantity
-    pos_price = 0  # current position price
-
-    #iterate from first to n-1 row, as we want to close our position on the last day.
-    for index, row in df.head(-1).iterrows():
-        new_position = row[signal_column]
-        current_price = row[price_column]
-        
-        # receive signal to reverse current position
-        if current_position != new_position:
-            # bullish market: close short position and open a long position
-            if new_position == 1:
-                #open a long position (short position not implemented yet)
-                pos_quantity = np.floor_divide(balance, current_price) 
-                balance = balance - current_price * pos_quantity
-                if include_commission:
-                    balance = balance - calculate_commission(current_price, pos_quantity)
-                
-                pos_price = current_price
-                current_position = new_position
-                #print "long ", row['date'], balance, pos_quantity, pos_price
-            
-            # bearish market: close long position and open a short position
-            else:
-                #close the long position (short position not implemented yet)
-                balance = balance + current_price * pos_quantity
-                if include_commission:
-                    balance = balance - calculate_commission(current_price, pos_quantity)
-                    
-                pos_quantity = 0
-                pos_price = 0
-                current_position = new_position
-                #print "close", row['date'], balance, pos_quantity, pos_price
-            
-        #hold position and do nothing
-        else:
-            #print "hold ", row['date'], balance, pos_quantity, pos_price
-            pass
-            
-        # capture date and balance at end of day
-        balance_over_time.append((row['date'], balance+current_price * pos_quantity))
-        
-    #found open position on the last day, let's close it
-    if pos_quantity != 0:
-        # get price of last day
-        current_price = df.tail(1).iloc[0][price_column]
-        balance = balance + pos_quantity * current_price
-        if include_commission:
-            balance = balance - calculate_commission(current_price, pos_quantity)
-            
-    # capture date and balance on last day\n",
-    balance_over_time.append((df.tail(1).iloc[0]['date'], balance))
-    
-    profit = balance - intitial_balance
-    ROI = profit/intitial_balance
-    
-    return balance, profit, ROI, balance_over_time
-
-
-'''
-if signal is change from 1 to 0
-    close existing long position 
-    open new short position 
-if signal is change from 0 to 1
-    close existing short position 
-    open new long position
-else 
-    hold position
-'''
-def evaluate_profit2(df, start_date, end_date, intitial_balance, signal_column, price_column, include_commission=True):
-    df = df.sort('date')
-    df = df[df.date >= start_date][df.date <= end_date]
-    
-    balance_over_time = []
-    balance = intitial_balance
-    current_position = -1  # 1 for long position, 0 for short
-    pos_quantity = 0  # current position quantity
-    pos_price = 0  # current position price
+    current_position = -1 #1 for long position, 0 for short
+    pos_quantity = 0 # current position quantity
+    pos_price = 0 #current position price
 
     #iterate from first to n-1 row, as we want to close our position on the last day.
     for index, row in df.head(-1).iterrows():
@@ -709,65 +634,67 @@ def evaluate_profit2(df, start_date, end_date, intitial_balance, signal_column, 
             # bullish market: close short position and open a long position
             if new_position == 1:
                 #close the short position
-                balance = balance + pos_quantity * (2 * pos_price - current_price)
-                if include_commission:
-                    balance = balance - calculate_commission(current_price, pos_quantity)
-
+                if short_:
+                    balance = balance + pos_quantity * (2 * pos_price - current_price)
+                    pos_quantity = 0
+                    pos_price = 0
+                    
                 #open a long position 
-                pos_quantity = np.floor_divide(balance, current_price) 
-                balance = balance - current_price * pos_quantity
-                if include_commission:
-                    balance = balance - calculate_commission(current_price, pos_quantity)
-                
-                pos_price = current_price
-                current_position = new_position
-                #print "long ", row['date'], balance, pos_quantity, pos_price
-            
+                if long_:
+                    pos_quantity = np.floor_divide(balance, current_price) 
+                    balance = balance - current_price * pos_quantity
+                    pos_price = current_price
+                    
             # bearish market: close long position and open a short position
             else:
                 #close the long position
-                balance = balance + current_price * pos_quantity
-                if include_commission:
-                    balance = balance - calculate_commission(current_price, pos_quantity)
-                
+                if long_:
+                    balance = balance + current_price * pos_quantity
+                    pos_quantity = 0
+                    pos_price = 0
+                    
                 #open a short position
-                pos_quantity = np.floor_divide(balance, current_price) 
-                balance = balance - current_price * pos_quantity
-                pos_price = current_price
-                current_position = new_position
-                #print "close", row['date'], balance, pos_quantity, pos_price
-            
+                if short_:
+                    pos_quantity = np.floor_divide(balance, current_price) 
+                    balance = balance - current_price * pos_quantity
+                    pos_price = current_price
+                    
+            current_position = new_position       
+            if commission:
+                balance = balance - calculate_commission(current_price, pos_quantity)  
+                
         #hold position and do nothing
         else:
-            #print "hold ", row['date'], balance, pos_quantity, pos_price
             pass
             
-        balance_over_time.append((row['date'], balance+current_price * pos_quantity))
+        balance_over_time.append((row['date'],balance+current_price * pos_quantity))
+        signals[current_position].append((row['date'], current_price))
         
     #found open position on the last day, let's close it
     if pos_quantity != 0:
         # get price of last day
-        current_price = df.tail(1).iloc[0][price_column]
+        current_price = df[price_column].tail(1).iloc[0]
         
         #close long position
-        if current_position == 1:
+        if long_ and current_position == 1:
             balance = balance + pos_quantity * current_price
-            if include_commission:
+            if commission:
                 balance = balance - calculate_commission(current_price, pos_quantity)
         
         #close short position
-        else:
+        if short_ and current_position == 0:
             balance = balance + pos_quantity * (2 * pos_price - current_price)
-            if include_commission:
+            if commission:
                 balance = balance - calculate_commission(current_price, pos_quantity)
             
     # capture date and balance on last day",
-    balance_over_time.append((df.tail(1).iloc[0]['date'], balance))
+    balance_over_time.append((df['date'].tail(1).iloc[0],balance))
+    signals[current_position].append((df['date'].tail(1).iloc[0], current_price))
     
     profit = balance - intitial_balance
     ROI = profit/intitial_balance
     
-    return balance, profit, ROI, balance_over_time
+    return  balance, profit, ROI, balance_over_time, signals
 
 
 def plot_balance_over_time(balance_over_time, aLabel):
@@ -790,14 +717,12 @@ Example for evaluate_profit() - buy low and sell high based on EMA
 
 start_date = datetime.date(2015, 1, 1)
 end_date = datetime.date.today()
-df_test = df.copy()
 
-balance, profit, ROI, balance_over_time_EMA = evaluate_profit(df_test, start_date, end_date, 10000, 'results', 'close', False)
+balance, profit, ROI, balance_over_time_EMA, signal = evaluate_profit(df, start_date, end_date, 10000, 'results', 'close', False, [1])
 print "ROI over {0} days: {1:.2f}%".format((end_date-start_date).days, ROI*100)
 
-balance, profit, ROI,balance_over_time_EMA_short = evaluate_profit2(df_test, start_date, end_date, 10000, 'results', 'close', False)
+balance, profit, ROI,balance_over_time_EMA_short,_ = evaluate_profit(df, start_date, end_date, 10000, 'results', 'close', False, [1,0])
 print "ROI over {0} days: {1:.2f}%".format((end_date-start_date).days, ROI*100)
-
 
 To plot
 
