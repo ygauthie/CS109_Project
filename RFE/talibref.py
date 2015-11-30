@@ -662,8 +662,9 @@ def evaluate_profit(df, start_date, end_date, intitial_balance, signal_column, p
             current_position = new_position       
             if commission:
                 balance = balance - calculate_commission(current_price, pos_quantity)  
-            
-			signals[current_position].append((row['date'], current_price))   
+                pass
+			
+            signals[current_position].append((row['date'], current_price))   
         #hold position and do nothing
         else:
             pass
