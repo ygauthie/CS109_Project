@@ -1,4 +1,7 @@
-
+"""
+Code from Sebastian Raschka
+http://sebastianraschka.com/Articles/2014_ensemble_classifier.html
+"""
 from sklearn.base import BaseEstimator
 from sklearn.base import ClassifierMixin
 from sklearn.base import TransformerMixin
