@@ -141,10 +141,10 @@
             </div>
             <div class="row text-center">
                     <br>
-                    <p class="text-muted">This is the result of a project that the four of us conducted as part of a <a href="http:\\cs109.org">data science course</a> we took at Harvard during the Fall of 2015.  Data science and machine learning play an increasing role in applied finance. The markets produce huge and ever increasing volumes of data. This calls for novel methods to discover and explore patterns in the data, and possibly exploit them.
-                    </p>
-
-                    <p class="text-muted">Beating the market, however, is challenging.  Countless methods have been proposed to do so, but in general, they are not more profitable than the "buy-and-hold" strategy, especially when transaction costs are considered.
+                    <p class="text-muted" style="font-size:16px">This is the result of a project we did part of a <a href="http:\\cs109.org">data science course</a> we took at Harvard during the Fall of 2015.  Data science and machine learning play an increasing role in applied finance. Financial markets produce huge and ever increasing volumes of data, which calls for novel methods to discover and explore patterns, and possibly exploit them.
+                    <p>
+                    <br>
+                    <p class="text-muted" style="font-size:16px">Beating the market, however, is challenging.  Countless methods have been proposed to do so.  In general, they are not more profitable than the "buy-and-hold" strategy, especially when transaction costs are considered.  Nevertheless, we decided to give it a try!
                     </p>
                 
             </div>
@@ -174,7 +174,7 @@
                                     <h4 class="subheading">1. Market sector selection</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Instead of trying to predict individual stocks, we focus on sectors of the U.S. market, for instance the real estate market.</p>
+                                    <p class="text-muted">Instead of trying to predict individual stocks, we focus on sectors of the U.S. market, such as real estate, technology, energy, industrials and others. We try to predict the evolution of <a "href=https://www.ishares.com/us/products/product-list#categoryId=115&lvl2=overview">index funds</a> tracking each of these sectors.</p>
                                 </div>
                             </div>
                         </li>
@@ -184,10 +184,23 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="subheading">2. Feature engineering</h4>
+                                    <h4 class="subheading">2. Feature engineering - Techical indicators</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Using historical data, we compute various technical indicators related to our sector of interest, as well as indicators related to the broader stock market. We use these indicators (some quantitative, some binary) to feed our machine learning models.</p>
+                                    <p class="text-muted">Using historical data from <a href="http://finance.yahoo.com">Yahoo! Finance</a>, we compute various <a href="http://www.investopedia.com/university/technical/techanalysis10.asp?header_alt=b">technical indicators</a> related to our sector of interest, as well as indicators related to the broader stock market. We use these indicators (some quantitative, some binary) to feed our machine learning models.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">3. Feature engineering - Sentiment analysis</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Using historical data from <a href="http://finance.yahoo.com">Yahoo! Finance</a>, we compute various <a href="http://www.investopedia.com/university/technical/techanalysis10.asp?header_alt=b">technical indicators</a> related to our sector of interest, as well as indicators related to the broader stock market. We use these indicators (some quantitative, some binary) to feed our machine learning models.</p>
                                 </div>
                             </div>
                         </li>
@@ -197,7 +210,7 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="subheading">3. Classifier selection</h4>
+                                    <h4 class="subheading">4. Classifier selection</h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">We train, validate, and test various machine learning classifiers on our data.  We select the classifier that best predicts if the market sector of interest will be up (+) or down (-) in 14 days.</p>
@@ -210,7 +223,7 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="subheading">4. Trading simulation</h4>
+                                    <h4 class="subheading">5. Trading simulation</h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">We calculate how much profits (or losses) we could make if we invested 10,000$ in an indexed fund on Jan 1st 2015 and kept it until December (buy-and-hold strategy).  We compare this to how much we would make if we bought (or sold) our positions according to our classifier predictions. </p>
