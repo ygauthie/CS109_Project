@@ -159,7 +159,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Our approach</h2>
-                    <h3 class="section-subheading text-muted">A different take on market predictions</h3>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
             <div class="row">
@@ -184,23 +184,10 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="subheading">2. Feature engineering - Techical indicators</h4>
+                                    <h4 class="subheading">2. Technical analysis</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Using historical data from <a href="http://finance.yahoo.com">Yahoo! Finance</a>, we compute various <a href="http://www.investopedia.com/university/technical/techanalysis10.asp?header_alt=b">technical indicators</a> related to our sector of interest, as well as indicators related to the broader stock market. We use these indicators (some quantitative, some binary) to feed our machine learning models.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="subheading">3. Feature engineering - Sentiment analysis</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Using historical data from <a href="http://finance.yahoo.com">Yahoo! Finance</a>, we compute various <a href="http://www.investopedia.com/university/technical/techanalysis10.asp?header_alt=b">technical indicators</a> related to our sector of interest, as well as indicators related to the broader stock market. We use these indicators (some quantitative, some binary) to feed our machine learning models.</p>
+                                    <p class="text-muted">Using historical data from <a href="http://finance.yahoo.com">Yahoo! Finance</a>, we compute various <a href="http://www.investopedia.com/university/technical/techanalysis10.asp?header_alt=b">technical indicators</a> related to our sector of interest, as well as indicators related to the broader stock market. We use these indicators (some quantitative, some binary) as features to feed our machine learning models.</p>
                                 </div>
                             </div>
                         </li>
@@ -210,16 +197,29 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="subheading">4. Classifier selection</h4>
+                                    <h4 class="subheading">3. Sentiment analysis</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">We train, validate, and test various machine learning classifiers on our data.  We select the classifier that best predicts if the market sector of interest will be up (+) or down (-) in 14 days.</p>
+                                    <p class="text-muted">For selected sectors, we conduct natural language analysis of material published in the  <a href="http://www.nytimes.com">New York Times</a>.  For every trading day, we assess the general sentiment as good or bad, and use this as an additonal feature in our models.</p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
                                 <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">4. Classifier selection</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">We train, optimize, validate, and test an ensemble of machine learning classifiers on our data.  It includes logistic regression, support vector machines,  random forest, extra trees, and naive Bayes classifiers.  We then use the ensemble to predict if a market sector will be up (+) or down (-) in 14 days.  We don't make predictions on the next trading day because </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/5.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
