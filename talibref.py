@@ -18,11 +18,11 @@ sns.set_context("poster")
 
 
 def firstday(df):
-    return df.sort('date')['date'].head(1).iloc[0].strftime('%Y.%m.%d')
+    return df.sort('date')['date'].head(1).iloc[0]
 
 
 def lastday(df):
-    return df.sort('date')['date'].tail(1).iloc[0].strftime('%Y.%m.%d')
+    return df.sort('date')['date'].tail(1).iloc[0]
 
 '''
 Get all available data from yahoo API
