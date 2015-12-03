@@ -88,3 +88,4 @@ Temporary Items
 #Temporary data
 tempdata/
 .ipynb_checkpoints/
+data/
