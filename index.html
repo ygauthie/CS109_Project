@@ -32,6 +32,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Highcharts heatmaps -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 </head>
 
 <body id="page-top" class="index">
@@ -214,7 +219,7 @@
                                     <h4 class="subheading">4. Classifier selection</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">We train, optimize, validate, and test an ensemble of machine learning classifiers on our data.  It includes logistic regression, support vector machines,  random forest, extra trees, and naive Bayes classifiers.  We then use the ensemble to predict if a market sector will be up (+) or down (-) in 14 days.  We don't make predictions on the next trading day because </p>
+                                    <p class="text-muted">We train, optimize, validate, and test an ensemble of machine learning classifiers on our data.  It includes logistic regression, support vector machines,  random forest, extra trees, and naive Bayes classifiers.  We then use the ensemble to predict if a market sector will be up (+) or down (-) in 14 days.  We don't make predictions on the next trading day because we want to produce predictions that are less volatile and won't require making hundreds of trades a year.</p>
                                 </div>
                             </div>
                         </li>
@@ -233,9 +238,9 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <h4>So? Are
-                                    <br>we rich
-                                    <br>yet?</h4>
+                                <h4>So? Are 
+                                    <br>we doing
+                                    <br>well?</h4>
                             </div>
                         </li>
                     </ul>
@@ -250,12 +255,20 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Results</h2>
-                    <h3 class="section-subheading text-muted">1. Overview</h3>
+                    <h3>Summary</h3>
+                    <div id="container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
+                        <script src="js/heatmap_examples.js"></script>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>Detailed results per market sector</h3>
+                    <h3>Adding sentiment analysis</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>Results per market sector</h3>
                 </div>
             </div>
             <div class="row">
@@ -266,7 +279,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
+                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Industrials</h4>
