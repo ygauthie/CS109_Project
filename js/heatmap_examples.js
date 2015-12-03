@@ -6,7 +6,7 @@
 
 // Load the fonts
 Highcharts.createElement('link', {
-   href: '//fonts.googleapis.com/css?family=Dosis:400,600',
+   href: '//fonts.googleapis.com/css?family=Roboto+Slab:400,600',
    rel: 'stylesheet',
    type: 'text/css'
 }, null, document.getElementsByTagName('head')[0]);
@@ -17,7 +17,7 @@ Highcharts.theme = {
    chart: {
       backgroundColor: null,
       style: {
-         fontFamily: "Dosis, sans-serif"
+         fontFamily: "Roboto Slab, sans-serif"
       }
    },
    title: {
