@@ -76,7 +76,7 @@ Highcharts.setOptions(Highcharts.theme);
 
 $(function () {
 
-    $('#container').highcharts({
+    $('#accuracy_container').highcharts({
 
         chart: {
             type: 'heatmap',
@@ -91,22 +91,23 @@ $(function () {
         },
 
         xAxis: {
-            categories: ['RBF_SVM', 'Extra_Trees', 'Gaussian_NB', 'log_regression', 'Random_forest', 'Ensemble']
+            categories: ['SVM (RBF)', 'Extra-trees', 'Gaussian Naive Bayes', 'Logistic regression', 'Random forest', 'Ensemble']
         },
 
         yAxis: {
-            categories: ['IYE', 'IYF', 'IYM', 'ITB', 'IYH', 'IYJ', 'IYW', 'IYR', 'IYZ'],
+            categories: ['Energy (IYE)', 'Financials (IYF)', 'Materials (IYM)', 'Home building (ITB)', 'Healthcare (IYH)', 'Industrials (IYJ)', 'Technology (IYW)', 'Real estate (IYR)', 'Telecoms (IYZ)'],
             title: null
         },
 
         colorAxis: {
             reversed: false,
-            min: 0.6,
+            min: 0.61,
             max:0.75,
             stops: [
-                [0, '#edf8b1'],
-                [0.5, '#7fcdbb'],
-                [1, '#2c7fb8']
+                [0, '#ffffcc'],
+                [0.25, '#a1dab4'],
+                [0.75, '#41b6c4'],
+                [1, '#225ea8']
             ],
         },
 
@@ -121,8 +122,8 @@ $(function () {
 
         tooltip: {
             formatter: function () {
-                return '<b>' + this.series.xAxis.categories[this.point.x] + '</b> sold <br><b>' +
-                    this.point.value + '</b> items on <br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
+                return 'The <b>' + this.series.xAxis.categories[this.point.x] + '</b> classifier was accurate <br><b>' +
+                    this.point.value*100 + '</b>% of trading days for <b>' + this.series.yAxis.categories[this.point.y] + '</b>';
             }
         },
 
