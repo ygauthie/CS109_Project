@@ -184,7 +184,7 @@
                                     <h4 class="subheading">1. Market sector selection</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Instead of trying to predict individual stocks, we focus on sectors of the U.S. market, such as real estate, technology, energy, industrials and others. We try to predict the evolution of <a "href=https://www.ishares.com/us/products/product-list#categoryId=115&lvl2=overview">index funds</a> tracking each of these sectors.</p>
+                                    <p class="text-muted">Instead of trying to predict stock prices of specific companies, we try to predict the evolution of <a href="https://www.ishares.com/us/products/product-list#categoryId=115&lvl2=overview">index funds</a> tracking specific sectors of the U.S. economy.  The nine sectors we focus on are real estate, technology, energy, industrials, financials, healtcare, home building, materials, and telecommunications.</p>
                                 </div>
                             </div>
                         </li>
@@ -197,7 +197,7 @@
                                     <h4 class="subheading">2. Technical analysis</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Using historical data from <a href="http://finance.yahoo.com">Yahoo! Finance</a>, we compute various <a href="http://www.investopedia.com/university/technical/techanalysis10.asp?header_alt=b">technical indicators</a> related to our sector of interest, as well as indicators related to the broader stock market. We use these indicators (some quantitative, some binary) as features to feed our machine learning models.</p>
+                                    <p class="text-muted">Using historical data from <a href="http://finance.yahoo.com">Yahoo! Finance</a>, we compute various <a href="http://www.investopedia.com/university/technical/techanalysis10.asp?header_alt=b">technical indicators</a> related to our sectors / funds of interest, as well as indicators related to the broader stock market (S&P500). We use these indicators (some quantitative, some binary) as features to feed our machine learning models.</p>
                                 </div>
                             </div>
                         </li>
@@ -210,7 +210,7 @@
                                     <h4 class="subheading">3. Sentiment analysis</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">For selected sectors, we conduct natural language analysis of material published in the  <a href="http://www.nytimes.com">New York Times</a>.  For every trading day, we assess the general sentiment as good or bad, and use this as an additonal feature in our models.</p>
+                                    <p class="text-muted">For selected sectors, we conduct natural language analysis of material published in the  <a href="http://www.nytimes.com">New York Times</a>.  For every trading day, we assess the general sentiment as positive or negative on a 0 to 100 scale.  We use this as an additonal feature in our models.</p>
                                 </div>
                             </div>
                         </li>
@@ -223,7 +223,7 @@
                                     <h4 class="subheading">4. Classifier selection</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">We train, optimize, validate, and test an ensemble of machine learning classifiers on our data.  It includes logistic regression, support vector machines,  random forest, extra trees, and naive Bayes classifiers.  We then use the ensemble to predict if a market sector will be up (+) or down (-) in 14 days.  We don't make predictions on the next trading day because we want to produce predictions that are less volatile and won't require making hundreds of trades a year.</p>
+                                    <p class="text-muted">We train, optimize, validate, and test an ensemble of machine learning classifiers on our data.  It includes logistic regression, support vector machine,  random forest, extra trees, and naive Bayes classifiers.  We then use the ensemble to predict if a market sector will be up (+) or down (-) in 14 trading days.  We don't make predictions on the next trading day because we want predictions that are less volatile and won't require making hundreds of trades a year.</p>
                                 </div>
                             </div>
                         </li>
@@ -236,7 +236,7 @@
                                     <h4 class="subheading">5. Trading simulation</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">We calculate how much profits (or losses) we could make if we invested 10,000$ in an indexed fund on Jan 1st 2015 and kept it until December (buy-and-hold strategy).  We compare this to how much we would make if we bought (or sold) our positions according to our classifier predictions. </p>
+                                    <p class="text-muted">We calculate how much profits (or losses) we could have made if we invested 10,000$ in an indexed fund on  01 Jan 2015 and kept it until 01 Dec 2015 (buy-and-hold strategy).  We compare this to how much we would make if we bought (or sold) our positions according to our classifier predictions, taking into account typical transaction fees of online brokers. </p>
                                 </div>
                             </div>
                         </li>

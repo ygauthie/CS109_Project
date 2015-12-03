@@ -87,7 +87,7 @@ $(function () {
 
 
         title: {
-            text: 'Sales per employee per weekday'
+            text: 'Model accuracy on test set (01 Jan to 01 Dec 2015)'
         },
 
         xAxis: {
