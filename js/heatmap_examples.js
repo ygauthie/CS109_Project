@@ -100,9 +100,14 @@ $(function () {
         },
 
         colorAxis: {
-            min: 0,
-            minColor: '#FFFFFF',
-            maxColor: Highcharts.getOptions().colors[0]
+            reversed: false,
+            min: 0.6,
+            max:0.75,
+            stops: [
+                [0, '#edf8b1'],
+                [0.5, '#7fcdbb'],
+                [1, '#2c7fb8']
+            ],
         },
 
         legend: {
