@@ -135,7 +135,7 @@ $(function () {
             dataLabels: {
                 enabled: true,
                 color: '#000000',
-                format: '{point.value} %'
+                format: '{point.value}'
             }
         }]
 
