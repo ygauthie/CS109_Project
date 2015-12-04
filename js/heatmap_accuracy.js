@@ -80,16 +80,19 @@ $(function () {
 
         chart: {
             type: 'heatmap',
-            marginTop: 40,
+            marginTop: 60,
             marginBottom: 80,
             plotBorderWidth: 1
         },
 
 
         title: {
-            text: 'Model accuracy on test set (01 Jan to 01 Dec 2015)'
+            text: 'Model accuracy on test set'
         },
 
+        subtitle: {
+            text: '(trading days from 01 Jan to 01 Dec 2015)'
+        },
         xAxis: {
             categories: ['SVM (RBF)', 'Extra-trees', 'Gaussian Naive Bayes', 'Logistic regression', 'Random forest', 'Ensemble']
         },
@@ -114,9 +117,9 @@ $(function () {
         legend: {
             align: 'right',
             layout: 'vertical',
-            margin: 0,
+            margin: 20,
             verticalAlign: 'top',
-            y: 25,
+            y: 35,
             symbolHeight: 280
         },
 
