@@ -76,7 +76,7 @@ Highcharts.setOptions(Highcharts.theme);
 
 $(function () {
 
-    $('#ROI_container').highcharts({
+    $('#ROI_diff_container').highcharts({
 
         chart: {
             type: 'heatmap',

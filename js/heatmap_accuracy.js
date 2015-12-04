@@ -87,7 +87,7 @@ $(function () {
 
 
         title: {
-            text: 'Model accuracy on test set'
+            text: 'Model accuracies on test set'
         },
 
         subtitle: {
@@ -117,7 +117,7 @@ $(function () {
         legend: {
             align: 'right',
             layout: 'vertical',
-            margin: 20,
+            margin: 0,
             verticalAlign: 'top',
             y: 35,
             symbolHeight: 280
@@ -126,7 +126,7 @@ $(function () {
         tooltip: {
             formatter: function () {
                 return 'The <b>' + this.series.xAxis.categories[this.point.x] + '</b> classifier was accurate <br><b>' +
-                    this.point.value*100 + '</b>% of trading days for <b>' + this.series.yAxis.categories[this.point.y] + '</b>';
+                    Math.round(this.point.value*100)+ '</b>% of trading days for <b>' + this.series.yAxis.categories[this.point.y] + '</b>';
             }
         },
 
