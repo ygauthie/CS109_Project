@@ -61,7 +61,7 @@ $(function () {
 
     $.each(names, function (i, name) {
 
-        $.getJSON('./data/time_series/IYJ_' + name.toLowerCase() + '.json',    function (data) {
+        $.getJSON('./data/time_series/IYJ_' + name + '.json',    function (data) {
 
             seriesOptions[i] = {
                 name: name,
