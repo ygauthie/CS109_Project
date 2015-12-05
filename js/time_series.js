@@ -1,7 +1,7 @@
 $(function () {
     var seriesOptions = [],
         seriesCounter = 0,
-        names = ['baseline', 'long'];
+        names = ['Ensemble', 'Baseline'];
 
     /**
      * Create the chart when all data is loaded
@@ -11,10 +11,26 @@ $(function () {
 
         $('#series_container').highcharts('StockChart', {
 
+
             rangeSelector: {
                 selected: 4
             },
 
+            title: {
+                text: 'Simulated evolution $10K Investment'
+            },
+
+            subtitle: {
+                text: 'Compared to "buying-and-holding" the index'
+            },
+
+            legend: {
+                align: 'left',
+                verticalAlign: 'center',
+                layout: 'vertical',
+                enabled: true
+            },
+ 
             yAxis: {
                 labels: {
                     formatter: function () {
