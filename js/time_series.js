@@ -1,7 +1,7 @@
 $(function () {
     var seriesOptions = [],
         seriesCounter = 0,
-        names = ['MSFT', 'AAPL', 'GOOG'];
+        names = ['baseline', 'long'];
 
     /**
      * Create the chart when all data is loaded
@@ -45,7 +45,7 @@ $(function () {
 
     $.each(names, function (i, name) {
 
-        $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=' + name.toLowerCase() + '-c.json&callback=?',    function (data) {
+        $.getJSON('./data/time_series/IYJ_' + name.toLowerCase() + '.json',    function (data) {
 
             seriesOptions[i] = {
                 name: name,
