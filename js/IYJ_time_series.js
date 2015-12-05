@@ -9,7 +9,7 @@ $(function () {
      */
     function createChart() {
 
-        $('#series_container').highcharts('StockChart', {
+        $('#IYJ_container').highcharts('StockChart', {
 
             chart: {
                 marginTop: 70
