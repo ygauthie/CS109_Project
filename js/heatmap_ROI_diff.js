@@ -128,7 +128,7 @@ $(function () {
         tooltip: {
             formatter: function () {
                 return 'Trading <b>' + this.series.yAxis.categories[this.point.y] + '</b> based on predictions from <br> the <b>' + this.series.xAxis.categories[this.point.x] + '</b> classifier would have returned <b>' +
-                    Math.round(this.point.value*100) + '</b>% <br>on investment.';
+                    Math.round(this.point.value*100) + '</b>% <br>on investment above buying and holding the index.' ;
             }
         },
 
