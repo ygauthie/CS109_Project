@@ -1,7 +1,7 @@
 $(function () {
     var seriesOptions = [],
         seriesCounter = 0,
-        names = ['Ensemble', 'Baseline'];
+        names = ['Ensemble', 'Index'];
 
     /**
      * Create the chart when all data is loaded
@@ -11,17 +11,20 @@ $(function () {
 
         $('#series_container').highcharts('StockChart', {
 
+            chart: {
+                marginTop: 70
+            },
 
             rangeSelector: {
                 selected: 4
             },
 
             title: {
-                text: 'Simulated evolution $10K Investment'
+                text: 'Simulated growth of a $10,000 investment'
             },
 
             subtitle: {
-                text: 'Compared to "buying-and-holding" the index'
+                text: 'when trading based on ensemble classifier predictions'
             },
 
             legend: {
