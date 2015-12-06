@@ -266,17 +266,17 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Results</h2>
-                    <div id="accuracy_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
-                    </div>
-                    <div id="ROI_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
-                    </div>
+                    <br>
+                    <!-- Results on models' accuracy -->
+                    <p><b>Accuracy</b>: our models were accurate between 62% and 75% of the times. That's how often they correctly predicted if an index fund would be up or down 14 trading days in the future. While not always the best, our ensemble model generally was more accurate than the classifiers compositing it. </p><br>
+                    <div id="accuracy_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
+                    <!-- Results on models' comparison to benchmark-->
+                    <p><b>Performance</b>: trading based on our ensemble model (i.e., being in the market after a "buy" signal and out after a "sell" signal) over the test period (01 Jan to 01 Dec 2015) would have produced returns on investments superior to the index funds in all but one case.  For some indices, the outpermance was in double digits! </p><br>
                     <div id="ROI_diff_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h3>Adding sentiment analysis</h3>
+                    <p><b>Profitability</b>: the models would not necessecarily have generated profits. Some sectors performed so badly in 2015 (e.g., energy and materials) that </p><br>
+                    <div id="ROI_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -289,7 +289,7 @@
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
@@ -301,96 +301,96 @@
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Financials</h4>
+                        <h4>Financials (IYF)</h4>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Technology</h4>
+                        <h4>Technology (IYW)</h4>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Real Estate</h4>
+                        <h4>Real Estate (IYR)</h4>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Telecoms</h4>
+                        <h4>Telecoms (IYZ)</h4>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Home construction</h4>
+                        <h4>Home construction (ITB)</h4>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Home construction</h4>
+                        <h4>Materials (IYM)</h4>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Home construction</h4>
+                        <h4>Energy (IYE)</h4>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                         </div>
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Home construction</h4>
+                        <h4>Healtcare (IYH)</h4>
                     </div>
                 </div>
             </div>
