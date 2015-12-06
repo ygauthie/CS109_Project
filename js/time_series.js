@@ -1,15 +1,15 @@
 $(function () {
     var seriesOptions = [],
         seriesCounter = 0,
-        names = ['Ensemble', 'Index'];
-
+        names = ['Ensemble', 'Index'],
+        tickers = ['IYJ','IYF','IYW','IYZ','ITB','IYE','IYH','IYM','IYR'];
     /**
      * Create the chart when all data is loaded
      * @returns {undefined}
      */
-    function createChart() {
+    function createChart(ticker) {
 
-        $('#IYJ_container').highcharts('StockChart', {
+        $('#'+ticker+'_container').highcharts('StockChart', {
 
             chart: {
                 marginTop: 70
@@ -61,23 +61,26 @@ $(function () {
             series: seriesOptions
         });
     }
+    $.each(tickers, function (j, ticker) {
+        console.log("seriesCounter reset")
+      $.each(names, function (i, name) {
 
-    $.each(names, function (i, name) {
-
-        $.getJSON('./data/time_series/IYJ_' + name + '.json',    function (data) {
-
+        $.getJSON('./data/time_series/'+ticker + '_' + name + '.json',    function (data) {
+            console.log(ticker)
             seriesOptions[i] = {
                 name: name,
                 data: data
             };
-
+            
             // As we're loading the data asynchronously, we don't know what order it will arrive. So
             // we keep a counter and create the chart when all the data is loaded.
             seriesCounter += 1;
-
             if (seriesCounter === names.length) {
-                createChart();
+                createChart(ticker);
+                console.log("call");
+                seriesCounter = 0;
             }
         });
+      });
     });
 });

@@ -42,8 +42,7 @@
     <script src="https://code.highcharts.com/modules/heatmap.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     
-    <script src="js/IYJ_time_series.js"></script>
-    <script src="js/IYF_time_series.js"></script>
+    <script src="js/time_series.js"></script>
     <script src="js/heatmap_accuracy.js"></script>
     <script src="js/heatmap_ROI.js"></script>
     <script src="js/heatmap_ROI_diff.js"></script>
@@ -227,10 +226,10 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="subheading">4. Classifier selection</h4>
+                                    <h4 class="subheading">4. Predictions</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">We train, optimize, validate, and test an ensemble of machine learning classifiers on our data.  It includes logistic regression, support vector machine,  random forest, extra trees, and naive Bayes classifiers.  We then use the ensemble to predict if a market sector will be up (+) or down (-) in 14 trading days.  We don't make predictions on the next trading day because we want predictions that are less volatile and won't require making hundreds of trades a year.</p>
+                                    <p class="text-muted">We train, optimize, validate, and test an ensemble of five machine learning classifiers: logistic regression, support vector machine,  random forest, extra trees, and naive Bayes classifiers.  We then use the ensemble to predict if a market sector will be up (+) or down (-) 14 trading days in the future.  We don't make predictions on the next trading day because we want predictions that are less volatile and won't require making hundreds of trades per year.</p>
                                 </div>
                             </div>
                         </li>
@@ -243,7 +242,7 @@
                                     <h4 class="subheading">5. Trading simulation</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">We calculate how much profits (or losses) we could have made if we invested 10,000$ in an indexed fund on  01 Jan 2015 and kept it until 01 Dec 2015 (buy-and-hold strategy).  We compare this to how much we would make if we bought (or sold) our positions according to our classifier predictions, taking into account typical transaction fees of online brokers. </p>
+                                    <p class="text-muted">We calculate how much profits (or losses) we could have made if we invested 10,000$ in an indexed fund on  01 Jan 2015 and kept it until 01 Dec 2015 (buy-and-hold strategy).  This is our sector benchmark. We compare it to how much could have made by following predictions of our ensemble model, taking into account typical transaction fees of online brokers. We stay in in the market as long as our model tells us to "buy", and out of the market when we get a "sell" signal.</p>
                                 </div>
                             </div>
                         </li>
@@ -268,13 +267,17 @@
                     <h2 class="section-heading">Results</h2>
                     <br>
                     <!-- Results on models' accuracy -->
-                    <p><b>Accuracy</b>: our models were accurate between 62% and 75% of the times. That's how often they correctly predicted if an index fund would be up or down 14 trading days in the future. While not always the best, our ensemble model generally was more accurate than the classifiers compositing it. </p><br>
+                    <h3 class="section-heading">Prediction accuracy</h3>
+                    Our models were accurate between 62% and 75% of the times. That's how often they correctly predicted if an index fund would be up or down 14 trading days in the future. While not always the best, our ensemble model generally was more accurate than the individual classifiers compositing it. </p><br>
                     <div id="accuracy_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
                     <!-- Results on models' comparison to benchmark-->
-                    <p><b>Performance</b>: trading based on our ensemble model (i.e., being in the market after a "buy" signal and out after a "sell" signal) over the test period (01 Jan to 01 Dec 2015) would have produced returns on investments superior to the index funds in all but one case.  For some indices, the outpermance was in double digits! </p><br>
+                    <h3 class="section-heading">Comparison to benchmark</h3>
+                    Trading based on predictions of our ensemble model (i.e., being in the market after a "buy" signal and out after a "sell" signal) over the test period (01 Jan to 01 Dec 2015) would have produced returns on investments superior to the index funds in all but one sector (real estate).  For some indices, our model outpermormed the index by double digits! </p><br>
                     <div id="ROI_diff_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
                     </div>
-                    <p><b>Profitability</b>: the models would not necessecarily have generated profits. Some sectors performed so badly in 2015 (e.g., energy and materials) that </p><br>
+                    <!-- Results on models' profitability-->
+                    <h3 class="section-heading">Profitability</h3>
+                    <p>The models would not necessecarily have generated profits over the test period. Some sectors (including energy, materials, and real estate) performed so badly that we would still have lost money.  It is also important to note that profits are not only function of the model's accuracies.  Some models were more accurate than others but did not return as much profits, mainly because timing is important.  You can be 99% accurate, if you make the wrong prediction just before a market crash, it  can severely reduce profitability.  </p><br>
                     <div id="ROI_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
                     </div>
                 </div>
@@ -404,16 +407,12 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Conclusions</h2>
-                    <h3 class="section-subheading text-muted">What is this all about?</h3>
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-question fa-stack-1x fa-inverse"></i>
-                    </span>
+                    <h3 class="section-subheading text-muted">So, are we rich yet?</h3>
                 </div>
             </div>
             <div class="row text-center">
                     <br>
-                    <p class="text-muted">Blah
+                    <p class="text-muted">Not really.
                     </p>
                 
             </div>
