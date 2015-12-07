@@ -63,6 +63,11 @@ $(function () {
             series: seriesOptions
         });
     }
+    // Set the global configs to synchronous 
+    $.ajaxSetup({
+        async: false
+    });
+
     $.each(tickers, function (j, ticker) {
       $.each(names, function (i, name) {
         $.getJSON('./data/time_series/'+ticker + '_' + name + '.json',    function (data) {
