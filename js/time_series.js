@@ -1,7 +1,8 @@
+
 $(function () {
     var seriesOptions = [],
         seriesCounter = 0,
-        names = ['Ensemble', 'Index'],
+        names = ['Index','Ensemble','Extra_Trees','Gaussian_NB','log_regression','Random_forest','RBF_SVM'],
         tickers = ['IYJ','IYF','IYW','IYZ','ITB','IYE','IYH','IYM','IYR'];
     /**
      * Create the chart when all data is loaded
@@ -26,13 +27,6 @@ $(function () {
             subtitle: {
                 text: 'when trading based on ensemble classifier predictions'
             },
-
-            legend: {
-                align: 'left',
-                verticalAlign: 'center',
-                layout: 'vertical',
-                enabled: true
-            },
  
             yAxis: {
                 labels: {
@@ -42,7 +36,7 @@ $(function () {
                 },
                 plotLines: [{
                     value: 0,
-                    width: 2,
+                    width: 1,
                     color: 'silver'
                 }]
             },
@@ -75,9 +69,9 @@ $(function () {
             // As we're loading the data asynchronously, we don't know what order it will arrive. So
             // we keep a counter and create the chart when all the data is loaded.
             seriesCounter += 1;
-            if (seriesCounter === names.length) {
+            if (i === names.length-1) {
                 createChart(ticker);
-                console.log("call");
+                console.log("call "+ticker);
                 seriesCounter = 0;
             }
         });
