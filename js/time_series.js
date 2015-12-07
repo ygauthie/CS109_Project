@@ -64,11 +64,8 @@ $(function () {
         });
     }
     $.each(tickers, function (j, ticker) {
-        console.log("seriesCounter reset")
       $.each(names, function (i, name) {
-
         $.getJSON('./data/time_series/'+ticker + '_' + name + '.json',    function (data) {
-            async: false;
             seriesOptions[i] = {
                 name: name,
                 data: data
@@ -79,7 +76,6 @@ $(function () {
             seriesCounter += 1;
             if (i === names.length - 1) {
                 createChart(ticker);
-                console.log("call "+ticker);
                 seriesCounter = 0;
             }
         });
