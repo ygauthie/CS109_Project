@@ -2,7 +2,8 @@
 $(function () {
     var seriesOptions = [],
         seriesCounter = 0,
-        names = ['Index','Ensemble','Extra_Trees','Gaussian_NB','log_regression','Random_forest','RBF_SVM'],
+        names = ['Index','Ensemble'],
+        //names = ['Index','Ensemble','Extra_Trees','Gaussian_NB','log_regression','Random_forest','RBF_SVM'],
         tickers = ['IYJ','IYF','IYW','IYZ','ITB','IYE','IYH','IYM','IYR'];
     /**
      * Create the chart when all data is loaded
@@ -11,7 +12,7 @@ $(function () {
     function createChart(ticker) {
 
         $('#'+ticker+'_container').highcharts('StockChart', {
-
+  
             chart: {
                 marginTop: 70
             },
@@ -40,6 +41,13 @@ $(function () {
                     color: 'silver'
                 }]
             },
+             
+            legend: {
+                align: 'left',
+                verticalAlign: 'center',
+                layout: 'vertical',
+                enabled: true
+            },
 
             plotOptions: {
                 series: {
@@ -60,7 +68,7 @@ $(function () {
       $.each(names, function (i, name) {
 
         $.getJSON('./data/time_series/'+ticker + '_' + name + '.json',    function (data) {
-            console.log(ticker)
+            async: false;
             seriesOptions[i] = {
                 name: name,
                 data: data
@@ -69,7 +77,7 @@ $(function () {
             // As we're loading the data asynchronously, we don't know what order it will arrive. So
             // we keep a counter and create the chart when all the data is loaded.
             seriesCounter += 1;
-            if (i === names.length-1) {
+            if (seriesCounter === names.length) {
                 createChart(ticker);
                 console.log("call "+ticker);
                 seriesCounter = 0;
