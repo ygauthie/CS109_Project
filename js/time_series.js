@@ -77,7 +77,7 @@ $(function () {
             // As we're loading the data asynchronously, we don't know what order it will arrive. So
             // we keep a counter and create the chart when all the data is loaded.
             seriesCounter += 1;
-            if (seriesCounter === names.length) {
+            if (i === names.length - 1) {
                 createChart(ticker);
                 console.log("call "+ticker);
                 seriesCounter = 0;
