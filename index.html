@@ -75,7 +75,7 @@
                         <a class="page-scroll" href="#team">Our Team</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#background">Background</a>
+                        <a class="page-scroll" href="#background">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#approach">Our Approach</a>
@@ -84,7 +84,7 @@
                         <a class="page-scroll" href="#results">Results</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#conclusion">Conclusions</a>
+                        <a class="page-scroll" href="#conclusion">Observations</a>
                     </li>
                 </ul>
             </div>
@@ -98,7 +98,7 @@
         <div class="container">
             <div class="intro-text">
                 <div class="intro-heading">Are we rich yet?</div>
-                <div class="intro-lead-in">How we tried to beat the stock market using machine learning (and apparently succeeded)</div>
+                <div class="intro-lead-in">How we tried to beat the stock market using machine learning (and generally succeeded)</div>
                 <a href="#team" class="page-scroll btn btn-xl">Read our story</a>
             </div>
         </div>
@@ -147,8 +147,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Background</h2>
-                    <h3 class="section-subheading text-muted">What is this all about?</h3>
+                    <h2 class="section-heading">About</h2>
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-question fa-stack-1x fa-inverse"></i>
@@ -265,19 +264,14 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Results</h2>
+                    <h3>Overview</h3>
                     <br>
                     <!-- Results on models' accuracy -->
-                    <h3 class="section-heading">Prediction accuracy</h3>
-                    Our models were accurate between 62% and 75% of the times. That's how often they correctly predicted if an index fund would be up or down 14 trading days in the future. While not always the best, our ensemble model generally was more accurate than the individual classifiers compositing it. </p><br>
                     <div id="accuracy_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
                     <!-- Results on models' comparison to benchmark-->
-                    <h3 class="section-heading">Comparison to benchmark</h3>
-                    Trading based on predictions of our ensemble model (i.e., being in the market after a "buy" signal and out after a "sell" signal) over the test period (01 Jan to 01 Dec 2015) would have produced returns on investments superior to the index funds in all but one sector (real estate).  For some indices, our model outpermormed the index by double digits! </p><br>
                     <div id="ROI_diff_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
                     </div>
                     <!-- Results on models' profitability-->
-                    <h3 class="section-heading">Profitability</h3>
-                    <p>The models would not necessecarily have generated profits over the test period. Some sectors (including energy, materials, and real estate) performed so badly that we would still have lost money.  It is also important to note that profits are not only function of the model's accuracies.  Some models were more accurate than others but did not return as much profits, mainly because timing is important.  You can be 99% accurate, if you make the wrong prediction just before a market crash, it  can severely reduce profitability.  </p><br>
                     <div id="ROI_container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto">
                     </div>
                 </div>
@@ -406,15 +400,54 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Conclusions</h2>
-                    <h3 class="section-subheading text-muted">So, are we rich yet?</h3>
+                    <h2 class="section-heading">Observations</h2>
                 </div>
             </div>
             <div class="row text-center">
-                    <br>
-                    <p class="text-muted">Not really.
-                    </p>
-                
+                <div class="col-md-4">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-circle fa-stack-1x text-primary"></i>
+                    </span>
+                    <h4 class="service-heading">Our predictions are better than random</h4>
+                    <p class="text-muted">Our models were accurate between 62% and 75% of the times. That's how often they correctly predicted if an index fund would be up or down 14 trading days into the future. While not always the best, our ensemble model generally was more accurate than the individual classifiers compositing it.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-circle fa-stack-1x text-primary"></i>
+                    </span>
+                    <h4 class="service-heading">We beat (most) indices</h4>
+                    <p class="text-muted">Trading based on predictions of our ensemble model (i.e., being in the market after a "buy" signal and out after a "sell" signal) over the test period would have produced ROIs superior to the index funds in all but one sector (real estate).  For the home construction sector, we even outperformed the index ROI by 16% ! </p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-circle fa-stack-1x text-primary"></i>
+                    </span>
+                    <h4 class="service-heading">Beating the index isn't sufficient</h4>
+                    <p class="text-muted">Choosing the market sector to invest in is important too.  Despite some good performance, our ROI would have been negative in three sectors that performed badly in 2015 (real estate, materials, and energy). Unfortunately, sector selection is not something our models can </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-circle fa-stack-1x text-primary"></i>
+                    </span>
+                    <h4 class="service-heading">Timing is important</h4>
+                    <p class="text-muted">Profits are not only function of the models' accuracies. Some models were more accurate than others but did not return as much profit because wrong predicitions were made before big market swings. You can be 99% accurate, making the wrong call just before a market crash will severely reduce gains.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-circle fa-stack-1x text-primary"></i>
+                    </span>
+                    <h4 class="service-heading">We don't predict market downturns well</h4>
+                    <p class="text-muted">For instance, most of our models gave a "buy" signal right before the market plunge of August 2015.  Had the market plunged even more, most of our gains could have been wiped out. </p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-circle fa-stack-1x text-primary"></i>
+                    </span>
+                    <h4 class="service-heading">We're still not rich</h4>
+                    <p class="text-muted">See, we didn't trade real money.  Even we had done so, we would have done well, but not stratospheric results sufficient to make us rich overnight...</p>
+                </div>
             </div>
         </div>
     </section>
