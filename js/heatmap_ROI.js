@@ -111,8 +111,8 @@ $(function () {
                 [0, '#d7191c'],
                 [0.25, '#fdae61'],
                 [0.5, '#ffffff'],
-                [0.75, '#a6d96a'],
-                [1, '#1a9641']
+                [0.75, '#abd9e9'],
+                [1, '#2c7bb6']
             ],
         },
 
@@ -139,7 +139,8 @@ $(function () {
                 dataLabels: {
                 enabled: true,
                 color: '#000000',
-                format: '{point.value}'
+                formatter: function () { return Math.round(this.point.value*100) + '%'; }
+                //format: '{point.value}'
             }
         }]
 

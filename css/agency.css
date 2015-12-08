@@ -423,6 +423,32 @@ section h3.section-subheading {
     z-index: 2;
 }
 
+#exTab1 {
+display: inline;
+position: relative;
+right: 37px; //change this to exactly center your ul 
+text-align: left;
+}
+
+#exTab1 ul {
+display: inline-block;
+list-style-type: none;
+position: relative;
+}
+
+#exTab1 .tab-content {
+  padding : 5px 15px;
+}
+
+#exTab1 .nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: black;
+}
+
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
 @media(min-width:767px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
