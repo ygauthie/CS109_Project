@@ -87,11 +87,11 @@ $(function () {
 
 
         title: {
-            text: 'Total Return on Investment'
+            text: 'Return on Investment (ROI)'
         },
 
         subtitle: {
-            text: '(simulated trading from 01 Jan to 01 Dec 2015)'
+            text: 'Simulated trading from 01 Jan to 01 Dec 2015'
         },
 
         xAxis: {

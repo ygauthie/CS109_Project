@@ -91,7 +91,7 @@ $(function () {
         },
 
         subtitle: {
-            text: '(ROI model minus ROI sector index)'
+            text: 'ROI (ensemble predictions)  minus  ROI (sector index)'
         },
 
         xAxis: {

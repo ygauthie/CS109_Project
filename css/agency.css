@@ -426,7 +426,7 @@ section h3.section-subheading {
 #exTab1 {
 display: inline;
 position: relative;
-right: 37px; //change this to exactly center your ul 
+right: 0px; //change this to exactly center your ul 
 text-align: left;
 }
 
@@ -447,7 +447,25 @@ position: relative;
 
 #exTab1 .nav-pills > li > a {
   border-radius: 4px 4px 0 0 ;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  color: #fed136;
 }
+
+.tab-content {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    margin-top: 0;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+
 
 @media(min-width:767px) {
     #portfolio .portfolio-item {
