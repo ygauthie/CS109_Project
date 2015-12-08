@@ -87,7 +87,7 @@ $(function () {
 
 
         title: {
-            text: 'Return on Investment'
+            text: 'Total Return on Investment'
         },
 
         subtitle: {
