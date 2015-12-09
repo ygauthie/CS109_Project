@@ -1,7 +1,7 @@
 
 # CS109_Project 
 
-
+### Directory Structures
 
 * MK_results: simulated trading performance for individual ticker
 
@@ -18,7 +18,6 @@
     -- nyt-sentiment_Eric.ipynb
 
 * data: raw market data using yahoo API
-
 
 * sentiment_data: raw article headlines and sentiment scores
 
