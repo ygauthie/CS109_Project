@@ -114,6 +114,10 @@ $(function () {
                 [0.75, '#abd9e9'],
                 [1, '#2c7bb6']
             ],
+            labels: {
+                    formatter: function() {
+                        return this.value * 100 + '%'; }
+            }
         },
 
         legend: {
