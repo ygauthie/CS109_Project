@@ -1,11 +1,13 @@
 
 # CS109_Project 
 
-### Directory Structures
+### Repository Structures
 
-* MK_results: simulated trading performance for individual ticker
+* Master-Notebook.ipynb: The main ipython process notebook
 
-* RFE: Individual notebooks
+* MK_results/: simulated trading performance for individual ticker
+
+* RFE/: Individual notebooks
 
     -- SelectBK_Yvan.ipynb
     
@@ -17,8 +19,8 @@
     
     -- nyt-sentiment_Eric.ipynb
 
-* data: raw market data using yahoo API
+* data/: raw market data using yahoo API
 
-* sentiment_data: raw article headlines and sentiment scores
+* entiment_data/: raw article headlines and sentiment scores
 
 
