@@ -3,24 +3,24 @@
 
 ### Repository Structures
 
-* Master-Notebook.ipynb: This is the main ipython process notebook
+* **Master-Notebook.ipynb**: Main IPython notebook containing all processes.
 
-* ML_results/: simulated trading performance for individual ticker
+* **ML_results/**: Performance result for individual ticker
 
-* RFE/: Individual notebooks
+* **RFE/**: Individual notebooks.
 
-    -- SelectBK_Yvan.ipynb
+    - SelectBK_Yvan.ipynb (All ML result produced by this notebook)
     
-    -- Visualize_Trading_Signal.ipynb
+    - Visualize_Trading_Signal.ipynb (Trading signal diagram)
     
-    -- Compare_SelectKBest_RFE.ipynb
+    - Compare_SelectKBest_RFE.ipynb (Detailed comparison between different feature selection)
     
-    -- nyt-sentiment.ipynb
+    - nyt-sentiment.ipynb (ML sentiment analysis)
     
-    -- nyt-sentiment_Eric.ipynb
+    - nyt-sentiment_Eric.ipynb (Simple sentiment analysis)
 
-* data/: raw market data using yahoo API
+* **data/**: Raw market data using yahoo API
 
-* sentiment_data/: raw article headlines and sentiment scores
+* **sentiment_data/**: Raw article data and sentiment scores
 
 
